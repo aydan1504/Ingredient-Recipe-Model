@@ -1,46 +1,46 @@
 # Recipe Model AI
 
 A lightweight recipe recommendation system based on ingredient list matching.  
-This project uses TF-IDF vectorization and cosine similarity to suggest the most relevant recipe from a large dataset, based only on text input — no training or image input required.
+This project uses NLP and TF-IDF vectorization to recommend the most relevant recipe from a large dataset based on user-inputted ingredients. Images are included for visualization, but the recommendation is fully text-based.
 
 ## Project Overview
 
-The goal of this project is to recommend recipes by analyzing a user-provided list of ingredients.  
+The goal of this project is to recommend recipes by analyzing a short ingredient description from the user.  
 We apply a simple retrieval-based approach that:
-- Vectorizes ingredient lists using TF-IDF
-- Compares them against a recipe dataset
-- Returns the most similar recipe based on cosine similarity
+- Extracts key nouns (ingredients) from the user's input using spaCy
+- Converts all recipes' ingredients into TF-IDF vectors
+- Computes cosine similarity between the user input and the dataset
+- Returns the top 5 matching recipes
 
-No training or fine-tuning is needed, making this method fast and efficient.
+Images are displayed using the CLIP-preprocessed dataset, but are not used for prediction.
 
 ## Technologies Used
 
 - Python
 - Google Colab
+- Pandas, NumPy, Matplotlib, Seaborn
 - Scikit-learn (TF-IDF, cosine similarity)
-- Pandas, NumPy
+- spaCy (NLP-based ingredient extraction)
+- Transformers (CLIP for optional image display)
 
 ## Dataset
 
 We used the [Food Ingredients and Recipe Dataset with Images](https://www.kaggle.com/datasets/pes12017000148/food-ingredients-and-recipe-dataset-with-images) from Kaggle.  
-Although the dataset contains images, this project only uses the **textual recipe information**, including:
-- 13,582 ingredient lists
-- Recipe titles and cooking instructions
+It contains:
+- 13,582 food images
+- Recipe titles, ingredients, and cooking instructions
+
+Only the text data is used for recommendation. Image paths are used for optional visualization.
 
 ## How to Run
 
 1. Open the `RecipeModel2.ipynb` notebook in Google Colab.
-2. Upload the Kaggle dataset files to your Drive (JSON format).
-3. Run the notebook step by step:
-   - Load and preprocess ingredients
-   - Vectorize inputs using TF-IDF
-   - Compute cosine similarity
-   - Return the closest-matching recipe
-
-## Evaluation
-
-We evaluated the system manually by checking if the returned recipes matched the given ingredients.  
-It performed well in most cases, especially for common or specific ingredient combinations.
+2. Install dependencies and mount your Google Drive if needed.
+3. Run all cells step by step:
+   - Download and load the dataset
+   - Preprocess the ingredient texts
+   - Build the TF-IDF matrix
+   - Enter a natural ingredient phrase (e.g., *"chicken, garlic, onion"*) to get top 5 similar recipes
 
 ## Contributors
 
