@@ -5,7 +5,7 @@ This project uses NLP and TF-IDF vectorization to recommend the most relevant re
 
 ## 🔗 Open in Colab
 
-[Click here to open the notebook in Google Colab](https://drive.google.com/file/d/1AXmVKzj-bgBVhC_yJmQCTWsb8KXa_DxD/view?usp=sharing)
+[Click here to open the notebook in Google Colab](https://colab.research.google.com/drive/1qF6w-ZRNzTv5h4WAxaPKxCM77JFxtXG_?usp=sharing)
 
 ## Project Overview
 
